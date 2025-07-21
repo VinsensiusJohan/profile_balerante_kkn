@@ -1,0 +1,167 @@
+/* Reset dan styling dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background: #098f1b;
+  padding: 10px 20px;
+}
+
+.logo img {
+  height: 40px; /* Sesuaikan tinggi logo */
+  vertical-align: middle;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul.menu {
+  list-style: none;
+  padding-left: 0;  
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: auto;
+}
+
+nav ul.menu > li {
+  position: relative;
+}
+
+nav ul.menu > li > a,
+.dropbtn {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+nav ul.menu > li > a.active,
+nav ul.menu > li > a:hover,
+.dropbtn:hover {
+  background: #098f1b;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #098f1b;
+  min-width: 160px;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  border-radius: 0 0 5px 5px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.dropdown-content li a {
+  padding: 10px 15px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content li a:hover {
+  background-color: #098f1b;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+main {
+  max-width: 960px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: relative;
+  }
+
+  /* Tampilkan hamburger icon */
+  .hamburger {
+    display: block;
+  }
+
+  /* Sembunyikan menu secara horizontal dan ubah jadi sidebar vertikal */
+  nav ul.menu {
+    display: none;
+    flex-direction: column;
+    background-color: #098f1b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    padding-top: 60px;
+    overflow-y: auto;
+    z-index: 1000;
+    border-radius: 0 5px 5px 0;
+  }
+
+  /* Ketika menu aktif (sidebar terbuka) */
+  nav ul.menu.active {
+    display: flex;
+  }
+
+  nav ul.menu > li {
+    width: 100%;
+  }
+
+  nav ul.menu > li > a,
+  .dropbtn {
+    padding: 15px 20px;
+    /*border-bottom: 1px solid rgba(255, 255, 255, 0.1);*/
+  }
+
+  .dropdown-content {
+    /*position: relative;
+    /*background-color: #0baf26;
+    /*min-width: 100%;
+    /*border-radius: 0;*/ 
+    display: none;
+  }
+
+  /* Disable hover dropdown di mobile */
+
+  /* Dropdown aktif tampil di mobile */
+  .dropdown-content.active {
+    display: block;
+  }
+  
+}       
