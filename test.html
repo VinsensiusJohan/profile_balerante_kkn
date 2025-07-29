@@ -1,129 +1,260 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Foto Slider Otomatis dan Manual</title>
-<style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 0;
-    background: #f0f0f0;
-  }
-  .slider {
-    position: relative;
-    max-width: 600px;
-    margin: 40px auto;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    background: #fff;
-  }
-  .slides {
-    display: flex;
-    width: 100%;
-    transition: transform 0.5s ease-in-out;
-  }
-  .slides img {
-    width: 100%;
-    flex-shrink: 0;
-  }
-  .nav-buttons {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-  }
-  .nav-buttons button {
-    background: rgba(0,0,0,0.5);
-    border: none;
-    color: white;
-    font-size: 24px;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    user-select: none;
-    transition: background 0.3s ease;
-  }
-  .nav-buttons button:hover {
-    background: rgba(0,0,0,0.8);
-  }
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profil Desa Balerante</title>
+    <link rel="icon" href="img/logo_desa_balerante.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        #home {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        #carouselExample {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        .carousel-item img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
 </head>
+
 <body>
+    <header class="bg-success fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark container">
+            <a class="navbar-brand" href="#" data-section="home">
+                <img src="img/logo_desa_balerante.png" alt="Logo Desa" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#" data-section="home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-section="profil-desa">Profil Desa</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="profilDusun" role="button"
+                            data-bs-toggle="dropdown">Profil Dusun</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-section="dusun-1">Dusun 1</a></li>
+                            <li><a class="dropdown-item" href="#" data-section="dusun-2">Dusun 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-section="sejarah">Sejarah</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-section="umkm">UMKM</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-section="peta">Peta</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-section="pemerintahan">Pemerintahan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-section="foto-video">Foto dan Video</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-<div class="slider">
-  <div class="slides">
-    <img src="https://picsum.photos/id/1018/600/400" alt="Gambar 1" />
-    <img src="https://picsum.photos/id/1015/600/400" alt="Gambar 2" />
-    <img src="https://picsum.photos/id/1019/600/400" alt="Gambar 3" />
-    <img src="https://picsum.photos/id/1020/600/400" alt="Gambar 4" />
-  </div>
-  <div class="nav-buttons">
-    <button id="prev">&#10094;</button>
-    <button id="next">&#10095;</button>
-  </div>
-</div>
+    <main class="container-fluid px-0">
+        <section id="home" class="content-section active">
+            <div class="position-relative">
+                <h1 class="mb-3">Selamat Datang di Website Profil Desa</h1>
+                <p class="mb-4">Ini adalah landing page profil desa kami.</p>
+            </div>
+            <div id="carouselExample" class="carousel slide fullscreen-slider" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://picsum.photos/id/1018/1920/1080" class="d-block w-100" alt="Gambar 1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Foto 1</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://picsum.photos/id/1015/1920/1080" class="d-block w-100" alt="Gambar 2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Foto 2</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://picsum.photos/id/1019/1920/1080" class="d-block w-100" alt="Gambar 3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Foto 3</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://picsum.photos/id/1020/1920/1080" class="d-block w-100" alt="Gambar 4">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Foto 4</h5>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
 
-<script>
-  const slides = document.querySelector('.slides');
-  const images = document.querySelectorAll('.slides img');
-  const prevBtn = document.getElementById('prev');
-  const nextBtn = document.getElementById('next');
-  const totalSlides = images.length;
-  let currentIndex = 0;
-  let slideWidth = images[0].clientWidth;
-  let autoSlideInterval = null;
+        <!-- Section lainnya -->
+        <section id="profil-desa" class="content-section">
+            <div class="container py-4">
+                <h2>Profil Desa</h2>
+                <p>Detail profil desa mencakup geografis, demografi, dan lainnya.</p>
+            </div>
+        </section>
 
-  function updateSlidePosition() {
-    slides.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
-  }
+        <section id="dusun-1" class="content-section">
+            <div class="container py-4">
+                <h2>Profil Dusun 1</h2>
+                <p>Informasi lengkap tentang Dusun 1 yang ada di desa ini.</p>
+            </div>
+        </section>
 
-  function showNextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateSlidePosition();
-  }
+        <section id="dusun-2" class="content-section">
+            <div class="container py-4">
+                <h2>Profil Dusun 2</h2>
+                <p>Detail profil dan informasi Dusun 2.</p>
+            </div>
+        </section>
 
-  function showPrevSlide() {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    updateSlidePosition();
-  }
+        <section id="dusun-3" class="content-section">
+            <div class="container py-4">
+                <h2>Profil Dusun 3</h2>
+                <p>Informasi terkait Dusun 3.</p>
+            </div>
+        </section>
 
-  function startAutoSlide() {
-    autoSlideInterval = setInterval(showNextSlide, 3000); // ganti gambar tiap 3 detik
-  }
+        <section id="sejarah" class="content-section">
+            <div class="container py-4">
+                <h2>Sejarah Desa</h2>
+                <p>Sejarah dan asal-usul desa kami.</p>
+            </div>
+        </section>
 
-  function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
-  }
+        <section id="umkm" class="content-section">
+            <div class="container py-4">
+                <h2>UMKM Desa</h2>
+                <p>Profil dan produk UKM yang ada di desa.</p>
+            </div>
+        </section>
 
-  nextBtn.addEventListener('click', () => {
-    stopAutoSlide();
-    showNextSlide();
-    startAutoSlide();
-  });
+        <section id="foto-video" class="content-section">
+            <div class="container py-4">
+                <h2>Foto dan Video</h2>
+                <p>Galeri foto dan video kegiatan desa dan dusun.</p>
+            </div>
+        </section>
 
-  prevBtn.addEventListener('click', () => {
-    stopAutoSlide();
-    showPrevSlide();
-    startAutoSlide();
-  });
+        <section id="peta" class="content-section">
+            <div class="container py-4">
+                <h2>Peta</h2>
+                <p>Gambar Peta</p>
+            </div>
+        </section>
 
-  window.addEventListener('resize', () => {
-    slideWidth = images[0].clientWidth;
-    updateSlidePosition();
-  });
+        <section id="pemerintahan" class="content-section">
+            <div class="container py-4">
+                <h2>Pemerintahan</h2>
+                <p>Struktur Pemerintahan</p>
+            </div>
+        </section>
+    </main>
 
-  // Inisialisasi
-  updateSlidePosition();
-  startAutoSlide();
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuLinks = document.querySelectorAll('nav a[data-section]');
+            const contentSections = document.querySelectorAll('.content-section');
 
+            function showSection(sectionId) {
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                const target = document.getElementById(sectionId);
+                if (target) {
+                    target.classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                }
+            }
+
+            function clearActiveMenu() {
+                menuLinks.forEach(link => link.classList.remove('active'));
+            }
+
+            menuLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('data-section');
+                    if (!sectionId) return;
+
+                    if (sectionId === 'profil-dusun') {
+                        showSection('dusun-1');
+                        clearActiveMenu();
+                        link.classList.add('active');
+                        return;
+                    }
+
+                    showSection(sectionId);
+                    clearActiveMenu();
+                    link.classList.add('active');
+
+                    // Collapse navbar jika sedang terbuka (mobile)
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                        if (bsCollapse) bsCollapse.hide();
+                    }
+                });
+            });
+
+            // Inisialisasi konten awal
+            showSection('home');
+
+            // Dropdown Bootstrap
+            const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            dropdownElementList.map(function (dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+
+            document.querySelectorAll('.dropdown-menu a[data-section]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const dropdown = bootstrap.Dropdown.getInstance(link.closest('.dropdown-menu').previousElementSibling);
+                    if (dropdown) dropdown.hide();
+                });
+            });
+        });
+
+    </script>
 </body>
+
 </html>
